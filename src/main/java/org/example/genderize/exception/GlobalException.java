@@ -63,6 +63,6 @@ public class GlobalException {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<ApiResponse<String>> handleInternalServerError(Exception ex) {
-        return ResponseEntity.internalServerError().body(ApiResponse.error("An unexpected error occurred: " + ex.getMessage()));
+        return ResponseEntity.internalServerError().body(ApiResponse.error("An error occurred: " + ex.getMessage()));
     }
 }
