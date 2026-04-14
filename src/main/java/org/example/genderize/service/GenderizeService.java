@@ -3,6 +3,7 @@ package org.example.genderize.service;
 import org.example.genderize.dto.GenderizeResponse;
 import org.example.genderize.exception.CustomBadRequestException;
 import org.example.genderize.model.GenderizeRaw;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
@@ -14,7 +15,8 @@ public class GenderizeService {
 
     private final RestTemplate restTemplate;
 
-    private final String BASE_URL = "https://api.genderize.io";
+    @Value("${genderlize.api.base-url}")
+    private String BASE_URL;
 
     public GenderizeService(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
